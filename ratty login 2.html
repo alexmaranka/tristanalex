@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Maranka | Portfolio Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    .login-container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .login-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button {
+      padding: 10px 20px;
+      background-color: #c560df;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #a74cc6;
+    }
+
+    #main-content {
+      display: none;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+      text-align: right;
+    }
+
+    header img {
+      float: left;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    section {
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .skills, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .circle {
+      background: #c560df;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .circle:hover {
+      background: #a74cc6;
+    }
+
+    .card {
+      background: rgb(158, 214, 54);
+      border-radius: 8px;
+      padding: 15px;
+      flex: 1 1 200px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #c560df;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #a74cc6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Login Screen -->
+  <div id="login" class="login-container">
+    <div class="login-box">
+      <h2>Login to Access Portfolio</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p id="error" style="color:red; display:none;">Incorrect credentials.</p>
+    </div>
+  </div>
+
+  <!-- Main Website Content -->
+  <div id="main-content">
+
+    <header>
+      <img src="alex.jpg" alt="Alex Maranka" />
+      <h1>Alex Maranka</h1>
+      <p>Software Engineering Student | Nairobi, Kenya</p>
+    </header>
+
+    <section>
+      <h2 style="font-size: 28px; color: #333;">About Me</h2>
+      <p style="font-size: 18px; line-height: 1.6; color: #555;">
+        I'm Alex Maranka, a passionate software engineering student based in Nairobi, Kenya. 
+        I love building practical tools like GPA calculators and simple desktop apps. 
+        I enjoy solving problems through code, exploring new technologies, and helping fellow students learn.
+      </p>
+    </section>
+
+    <section id="skills-section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="circle" onclick="openSkill('Java')">Java</div>
+        <div class="circle" onclick="openSkill('HTML & CSS')">HTML & CSS</div>
+        <div class="circle" onclick="openSkill('Python')">Python</div>
+        <div class="circle" onclick="openSkill('Swing GUI')">Swing GUI</div>
+        <div class="circle" onclick="openSkill('MySQL')">MySQL</div>
+        <div class="circle" onclick="openSkill('Hockey')">Hockey</div>
+      </div>
+    </section>
+
+    <section id="skill-detail" style="display: none;">
+      <button onclick="goBack()">← Back to Skills</button>
+      <h2 id="skill-name" class="section-title"></h2>
+      <p id="skill-info" style="font-size: 18px; line-height: 1.6;"></p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>GPA Calculator</h3>
+          <p>Java-based offline GPA calculator with Swing GUI.</p>
+        </div>
+        <div class="card">
+          <h3>Student Budget Tracker</h3>
+          <p>Simple app to help track spending and savings in campus.</p>
+        </div>
+        <div class="card">
+          <h3>Student Savings Plan</h3>
+          <p>Simple app to help students save with low income.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Contact</h2>
+      <p>Email: <a href="mailto:tristanalex384@gmail.com">tristanalex384@gmail.com</a><br>
+         Phone: 0706 936636<br>
+         LinkedIn: <a href="#">(Add your profile link)</a></p>
+    </section>
+
+    <footer>
+      &copy; 2025 Alex Maranka. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "tristanalex" && password === "890IOPalex") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
+    const skillDetails = {
+      "Java": "Java is a powerful, object-oriented programming language. I use it to build desktop applications like GPA calculators, budget planners, and more.",
+      "HTML & CSS": "I use HTML and CSS to structure and style websites. This portfolio site was built entirely with them.",
+      "Python": "Python helps me automate tasks, build quick tools, and explore data processing.",
+      "Swing GUI": "Swing is a Java GUI toolkit I use to build offline desktop apps like budget trackers and GPA tools.",
+      "MySQL": "I use MySQL for managing databases and integrating with Java apps through JDBC.",
+      "Hockey": "I play hockey as a sport—it improves my focus, teamwork, and discipline."
+    };
+
+    function openSkill(skillName) {
+      document.getElementById("skills-section").style.display = "none";
+      document.getElementById("skill-detail").style.display = "block";
+      document.getElementById("skill-name").textContent = skillName;
+      document.getElementById("skill-info").textContent = skillDetails[skillName] || "No details available.";
+    }
+
+    function goBack() {
+      document.getElementById("skills-section").style.display = "block";
+      document.getElementById("skill-detail").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
